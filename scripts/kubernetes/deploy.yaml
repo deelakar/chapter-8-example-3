@@ -23,11 +23,13 @@ spec:
     spec:
       containers: 
       - name: video-streaming
-        image: $CONTAINER_REGISTRY/video-streaming:$VERSION
+        image: acr71p.azurecr.io/video-streaming:1.0
         imagePullPolicy: IfNotPresent
         env:
         - name: PORT
           value: "4000"
+      imagePullSecrets:
+      - name: acr-secret
 ---
 apiVersion: v1
 kind: Service
